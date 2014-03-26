@@ -5,4 +5,5 @@ def numbers(upper_bound):
 
 if __name__ == '__main__':
     numbers = numbers(10)
+    numbers[0][1].append(0)
     print numbers
