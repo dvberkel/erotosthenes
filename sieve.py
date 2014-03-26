@@ -1,5 +1,7 @@
 #! /usr/bin/env python
 
+from random import choice
+
 class Sieve:
     @staticmethod
     def __numbers(upper_bound):
@@ -37,5 +39,10 @@ class Sieve:
                 yield entry[0];
 
 if __name__ == '__main__':
-    for p in Sieve(100).for_primes():
-        print p;
+    four_digit = []
+    for p in Sieve(10000).for_primes():
+        if p > 999:
+            four_digit.append(p)
+
+    p, q = choice(four_digit), choice(four_digit)
+    print min(p, q), max(p, q)
