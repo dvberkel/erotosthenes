@@ -1,7 +1,9 @@
 #! /usr/bin/env python
 
 def numbers(upper_bound):
-    return [ (n, []) for n in range(1, upper_bound) ]
+    ns = [ (n, []) for n in range(1, upper_bound) ]
+    ns[0][1].append(0)
+    return ns
 
 def sieve_step(numbers, current_index):
     d = numbers[current_index][0]
@@ -18,7 +20,6 @@ def next_current_index(numbers, current_index):
 
 def sieve(upper_bound):
     ns = numbers(upper_bound)
-    ns[0][1].append(0)
     current_index = 1
     while 2 * ns[current_index][0] - 1 < len(ns):
         sieve_step(ns, current_index)
