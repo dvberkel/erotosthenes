@@ -16,13 +16,14 @@ def next_current_index(numbers, current_index):
         current_index += 1
     return current_index
 
+def sieve(upper_bound):
+    ns = numbers(upper_bound)
+    ns[0][1].append(0)
+    current_index = 1
+    while 2 * ns[current_index][0] - 1 < len(ns):
+        sieve_step(ns, current_index)
+        current_index = next_current_index(ns, current_index)
+    return ns
 
 if __name__ == '__main__':
-    numbers = numbers(10)
-    numbers[0][1].append(0)
-    current_index = 1
-    sieve_step(numbers, current_index)
-    current_index = next_current_index(numbers, current_index)
-
-    print current_index
-    print numbers
+    print sieve(10)
