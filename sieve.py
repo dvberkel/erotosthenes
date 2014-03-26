@@ -31,6 +31,11 @@ class Sieve:
             self.__sieve_step(current_index)
             current_index = Sieve.__next_current_index(self.numbers, current_index)
 
+    def for_primes(self):
+        for entry in self.numbers:
+            if len(entry[1]) == 0:
+                yield entry[0];
+
 if __name__ == '__main__':
-    s = Sieve(10)
-    print s.numbers
+    for p in Sieve(100).for_primes():
+        print p;
